@@ -5,18 +5,17 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    figure = Figure.find_or_create_by(name: params[:figure][:name])
+    figure = Figure.create(params[:figure])
 
     if !params[:landmark][:name].empty?
-      landmark = Landmark.find_or_create_by(name: params[:landmark][:name])
-      figure.landmarks << landmark
+      figure.landmarks << Landmark.create(params[:landmark])
     end
 
     if !params[:title][:name].empty?
-      title = Title.find_or_create_by(params[:title])
-      figure.titles << title
+      figure.titles << Title.create(params[:title])
     end
 
+    figure.save
     redirect "/figures/#{figure.id}"
   end
 
@@ -39,10 +38,10 @@ class FiguresController < ApplicationController
     figure.update(params[:figure])
 
     if !params[:landmark][:name].empty?
-      landmark = Landmark.find_or_create_by(params[:landmark])
-      figure.landmarks << landmark
+      figure.landmarks << Landmark.create(params[:landmark])
     end
 
+    figure.save
     redirect "/figures/#{figure.id}"    
   end 
 end
