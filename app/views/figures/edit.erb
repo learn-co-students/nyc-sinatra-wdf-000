@@ -1,0 +1,35 @@
+<form action="/figures/<%=@figure.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+	<h3>Name:</h3>
+	<input id="figure_name" type="text" name="figure[name]" placeholder="<%=@figure.name%>">
+	<br>
+	<h3>Edit titles:</h3>
+	<br>
+	<% Title.all.each do |title| %>
+    <% if @figure.titles.include?(title) %>
+  		<input id="title_<%=title.id%>" type="checkbox" name="figure[title_ids][]" value="<%=title.id%>" checked><%=title.name%>
+    <% else %>
+      <input id="title_<%=title.id%>" type="checkbox" name="figure[title_ids][]" value="<%=title.id%>"><%=title.name%>
+  	<% end %>
+  <% end %>
+	<br>
+	<h3>Edit landmarks:</h3>
+	<br>
+	<% Landmark.all.each do |landmark| %>
+    <% if @figure.landmarks.include?(landmark) %>
+  		<input id="landmark_<%=landmark.id%>" type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>" checked><%=landmark.name%>
+    <% else %>
+      <input id="landmark_<%=landmark.id%>" type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>"><%=landmark.name%>
+  	<% end %>
+  <% end %>
+	<br>
+
+	<h3>And/or create a new title</h3>
+	<label>Title Name:</label>
+	<input id="new_title" type="text" name="title[name]">
+	<br>
+	<label>Landmark Name:</label>
+	<input id="new_landmark" type="text" name="landmark[name]">
+	<input type="submit" value="Edit Figure">
+</form>
