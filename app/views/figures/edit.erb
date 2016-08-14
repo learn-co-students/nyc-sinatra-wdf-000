@@ -3,8 +3,8 @@
 <form action="/figures/<%= @figure.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <p>
-    <label for="name">New figure name:</label>
-    <input id="figure_name" type="text" name="figure[name]">    
+    <label for="name">Update figure name:</label>
+    <input id="figure_name" type="text" name="figure[name]" value="<%= @figure.name %>">    
   </p>
 
   <p>
@@ -29,6 +29,10 @@
   <p>
     <label for="new_landmark">Create a new landmark:</label>
     <input id="new_landmark" type="text" name="landmark[name]">
+  </p>
+  <p>
+    <label for="year">Year Completed:</label>
+    <input id="landmark_year_completed" type="number" name="landmark[year_completed]">
   </p>
 
   <button type="submit" value="Edit Figure">Edit Figure</button>
