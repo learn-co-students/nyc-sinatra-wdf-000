@@ -1,3 +1,5 @@
+<%= erb :'/layouts/_header' %>
+
 <h1>Landmarks: </h1>
 
 <% Landmark.all.each do |landmark| %>
@@ -9,3 +11,5 @@
 <% end %>
 
 <a href="/landmarks/new">Create New Landmark</a>
+
+<%= erb :'/layouts/_footer' %>

@@ -1,3 +1,5 @@
+<%= erb :'/layouts/_header' %>
+
 <h1>Edit Landmark: </h1>
 <h2><%= @landmark.name %></h2>
 <h2><%= @landmark.year_completed %></h2>
@@ -14,5 +16,8 @@
   </p>
 
   <button type="submit" value="Edit Landmark">Edit Landmark</button>
+  <a href="/landmarks/<%= @landmark.id %>">Go Back</a>
 
 </form>
+
+<%= erb :'/layouts/_footer' %>

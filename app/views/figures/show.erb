@@ -1,3 +1,5 @@
+<%= erb :'/layouts/_header' %>
+
 <h1><%= @figure.name %></h1>
 
 <hr>
@@ -19,3 +21,5 @@
 <h3><a href="/figures/<%=@figure.id%>/edit">Edit Figure</a></h3>
 
 <h3><a href="/figures">Back to Figures</a></h3>
+
+<%= erb :'/layouts/_footer' %>

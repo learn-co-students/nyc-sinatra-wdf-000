@@ -1,3 +1,5 @@
+<%= erb :'/layouts/_header' %>
+
 <h2>Create new landmark</h2>
 
 <form action="/landmarks" method="POST">
@@ -8,6 +10,9 @@
     <input id="landmark_year_completed" type="number" name="landmark[year_completed]">
   </p>
 
-  <button type="submit" value="Create New Landmark"></button>
+  <button type="submit" value="Create New Landmark">Create New Landmark</button>
+  <a href="/landmarks">Go Back</a>
 
 </form>
+
+<%= erb :'/layouts/_footer' %>

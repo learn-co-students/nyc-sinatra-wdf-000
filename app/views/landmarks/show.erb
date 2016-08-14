@@ -1,3 +1,5 @@
+<%= erb :'/layouts/_header' %>
+
 <table class="table">
   <tr>
     <th><h2>Name</h2></th>
@@ -10,3 +12,5 @@
 <table>
 
 <h3><a href="/landmarks/<%= @landmark.id %>/edit">Edit <%= @landmark.name %> Landmark</a></h3>
+
+<%= erb :'/layouts/_footer' %>

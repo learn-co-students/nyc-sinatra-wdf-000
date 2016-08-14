@@ -1,3 +1,4 @@
+<%= erb :'/layouts/_header' %>
 <h1>Edit Figure: <%= @figure.name %></h1>
 
 <form action="/figures/<%= @figure.id %>" method="POST">
@@ -36,5 +37,7 @@
   </p>
 
   <button type="submit" value="Edit Figure">Edit Figure</button>
+  <a href="/figures/<%= @figure.id %>">Go Back</a>
 
 </form>
+<%= erb :'/layouts/_footer' %>
