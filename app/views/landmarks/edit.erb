@@ -1,0 +1,23 @@
+<%= erb :'/layouts/_header' %>
+
+<h1>Edit Landmark: </h1>
+<h2><%= @landmark.name %></h2>
+<h2><%= @landmark.year_completed %></h2>
+
+<form action="/landmarks/<%= @landmark.id %>/edit" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>
+    <label for="name">New landmark name:</label>
+    <input id="name" type="text" name="landmark[name]" value="<%= @landmark.name %>">
+  </p>
+  <p>
+    <label for="name">New year completed:</label>
+    <input id="year_completed" type="text" name="landmark[year_completed]" value="<%= @landmark.year_completed %>">
+  </p>
+
+  <button type="submit" value="Edit Landmark">Edit Landmark</button>
+  <a href="/landmarks/<%= @landmark.id %>">Go Back</a>
+
+</form>
+
+<%= erb :'/layouts/_footer' %>

@@ -1,0 +1,43 @@
+<%= erb :'/layouts/_header' %>
+
+<h2>Create new figure</h2>
+
+<form action="/figures" method="POST">
+  <p>
+    <label for="name">Figure Name:</label>
+    <input id="figure_name" type="text" name="figure[name]">
+  </p>
+
+  <p>
+    <label for="title"><h3>Select from available titles:</h3></label><br>
+    <% Title.all.each do |title| %>
+      <%=title.name%> <input id="title_<%=title.id%>" type="checkbox" name="figure[title_ids][]" value="<%=title.id%>">
+    <% end %>    
+  </p>
+
+  <p>
+    <label for="new_title">Create a new title:</label>
+    <input id="new_title" type="text" name="title[name]">
+  </p>
+
+  <p>
+    <label for="landmark"><h3>Select from available landmarks:</h3></label><br>
+    <% Landmark.all.each do |landmark| %>
+      <%=landmark.name%> <input id="landmark_<%=landmark.id%>" type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>"><br>
+    <% end %>    
+  </p>
+
+  <p>
+    <label for="new_landmark">Create a new landmark:</label>
+    <input id="new_landmark" type="text" name="landmark[name]">
+  </p>
+  <p>
+    <label for="year">Year Completed:</label>
+    <input id="landmark_year_completed" type="number" name="landmark[year_completed]">
+  </p>
+
+  <button type="submit" value="Create New Figure">Create New Figure</button>
+  <a href="/figures">Go Back</a>
+
+</form>
+<%= erb :'/layouts/_footer' %>

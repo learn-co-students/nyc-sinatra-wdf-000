@@ -1,0 +1,15 @@
+<%= erb :'/layouts/_header' %>
+
+<h1>Figures: </h1>
+
+<% Figure.all.each do |figure| %>
+  <ul>
+    <li>
+      <a href="/figures/<%=figure.id%>"><%= figure.name %></a> | <a href="/figures/<%=figure.id%>/edit">Edit</a>
+    </li>
+  </ul>
+<% end %>
+
+<a href="/figures/new">Create New Figure</a>
+
+<%= erb :'/layouts/_footer' %>
