@@ -8,4 +8,9 @@ class LandmarksController < ApplicationController
     @landmark = Landmark.create(params[:landmark])
     redirect to "/landmarks/#{@landmark.id}"
   end
+
+  get '/landmarks' do
+    @landmarks = Landmark.all
+    erb :'/landmarks/index'
+  end
 end
