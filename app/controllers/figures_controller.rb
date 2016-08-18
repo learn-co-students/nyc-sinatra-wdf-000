@@ -16,7 +16,21 @@ class FiguresController < ApplicationController
     end
 
     @figure.save
-    # binding.pry
     redirect to "/figures/#{@figure.id}"
+  end
+
+  get '/figures' do
+    @figures = Figure.all
+    erb :'/figures/index'
+  end
+
+  get '/figures/:id' do
+    @figure = Figure.find_by(params[:id])
+    erb :'/figures/show'
+  end
+
+  get '/figures/:id/edit' do
+    @figure = figure.find_by(params[:id])
+    # erb :'/figures/edit'
   end
 end
