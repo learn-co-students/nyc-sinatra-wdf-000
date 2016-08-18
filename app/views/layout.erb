@@ -30,8 +30,25 @@
         F;         _yQQQQF              Q
   -->
   </head>
+
   <body>
     <%= yield %>
+    <div id="nav_buttons">
+      <p><form method = "GET" action="/landmarks/new">
+        <input type = "submit" value = "Create A New Landmark">
+      </form>
+      </p>
+      <p><form method = "GET" action="/landmarks">
+        <input type = "submit" value = "List Landmarks">
+      </form></p>
+      <p><form method = "GET" action="/figures">
+        <input type = "submit" value = "List Figures">
+      </form></p>
+      <p><form method = "GET" action="/figures/new">
+        <input type = "submit" value = "Create A New Figure">
+      </form>
+      </p>
+    </div>
   </body>
 
 </html>

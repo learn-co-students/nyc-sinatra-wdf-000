@@ -2,9 +2,19 @@
   <tr>
     <th>Name</th>
     <th>Year Completed</th>
+    <th>Associated Figure</th>
   </tr>
   <tr>
     <td><%= @landmark.name %></td>
     <td><%= @landmark.year_completed %></td>
+    <%if !@landmark.figure.nil?%>
+     <td><a href = "/figures/<%=@landmark.figure.id%>"><%= @landmark.figure.name %></a></td>
+    <%else%>
+      <td>No associated figures</td>
+    <%end%>
   </tr>
 <table>
+<p><form method = "GET" action="/landmarks/<%=@landmark.id%>/edit">
+  <input type = "submit" value = "Edit Landmark">
+</form></p>
+<br></br>
