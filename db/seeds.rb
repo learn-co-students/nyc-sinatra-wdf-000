@@ -44,7 +44,7 @@ figure_list = {
     },
     "Ada Lovelace" => {
     },
-    "Linus Torvalds" => { 
+    "Linus Torvalds" => {
     }
   }
 
@@ -69,3 +69,5 @@ title_list.each do |name, figure_hash|
   p.name = name
   p.save
 end
+
+puts "successfully seeded"
