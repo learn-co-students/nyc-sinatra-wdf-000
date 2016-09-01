@@ -16,3 +16,4 @@ describe "Title" do
     expect(@mayor.figures).to include(@figure)
   end
 end
+
