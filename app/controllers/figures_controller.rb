@@ -6,7 +6,8 @@ class FiguresController < ApplicationController
 
 
   post '/figures/new' do
-binding.pry
+    binding.pry
+
   end
 
 end

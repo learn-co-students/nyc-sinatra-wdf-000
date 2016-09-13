@@ -32,7 +32,7 @@ describe FiguresController do
     fill_in :figure_name, :with => "Doctor Who"
 
     check "title_#{Title.first.id}"
-    binding.pry
+    
     click_button "Create New Figure"
     figure = Figure.last
     expect(Figure.all.count).to eq(3)
