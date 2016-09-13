@@ -1,0 +1,16 @@
+<h1>Create New Landmarks: </h1>
+
+<form method="POST" action="/landmarks">
+  <p>Name: <input type="text" name="landmark[name]" id="landmark_name"></p>
+
+  <p>Year Completed: <input type="text" name="landmark[year_completed]" id="landmark_year_completed"></p>
+
+
+  <p>Choose existing landmarks:</p>
+  <p><%Landmark.all.each do |lm|%>
+    <input type="checkbox" name="landmark_name" value="<%=lm.id%>" id="landmark_<%=lm.id%>"><%=lm.name%>: <%=lm.year_completed%><br></input>
+  <%end%></p>
+
+  <input type="submit" value="Create New Landmark">
+
+</form>

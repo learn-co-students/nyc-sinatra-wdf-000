@@ -1,0 +1,5 @@
+<h1>List of all Landmarks:</h1>
+
+<% @landmarks.each.with_index(1) do |lm, i| %>
+  <%= i %>. <%=lm.name%>: <%=lm.year_completed%><br>
+<% end %>
