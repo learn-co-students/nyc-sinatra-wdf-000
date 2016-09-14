@@ -75,7 +75,7 @@ describe FiguresController do
     expect(Landmark.all.count).to eq(2)
     expect(figure.name).to eq("Doctor Who")
     expect(figure.landmarks).to include(landmark)
-    binding.pry
+    
   end
 
   it "allows you to list all figures" do
