@@ -1,0 +1,39 @@
+<h1>Edit Landmark:</h1>
+
+<h1><%=@landmark.name%></h1>
+<h2><%=@landmark.year_completed.to_s%></h2>
+
+<form action="/landmarks/<%=@landmark.id%>" method=POST>
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label>Name:</label>
+  <input type="text" name="landmark[name]" id="name">
+  <br></br>
+
+  <input type="text" name="landmark[year_completed]" id="year_completed">
+  <br></br>
+
+  <label>Title:</label>
+  <%Title.all.each do |title|%>
+    <input type="checkbox" name="landmark[title_ids][]" id="title_<%= title.id %>" value="<%=title.id%>"><%=title.name%></input>
+  <%end%>
+  <br></br>
+
+  <label>Figure:</label>
+  <%Figure.all.each do |figure|%>
+    <input type="checkbox" name="landmark[figure_id]" id="figure_<%= figure.id %>" value="<%=figure.id%>"><%=figure.name%></input>
+  <%end%>
+  <br></br>
+
+  <label>Create New Title:</label>
+  <input type="text" name="title[name]" id="new_title">
+  <br></br>
+
+  <label>Create New Figure:</label>
+  <input type="text" name="figure[name]" id="new_figure">
+  <br></br>
+
+  <br></br>
+  <input type="submit" value="Edit Landmark">
+
+</form>
