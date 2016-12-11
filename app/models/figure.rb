@@ -1,6 +1,8 @@
-class Landmark <ActiveRecord::Base
-  belongs_to :figure
-
+class Figure < ActiveRecord::Base
+  has_many :landmarks
+  has_many :figure_titles
+  has_many :titles, :through => :figure_titles
+  
   def slug
     @input = self.name.downcase.gsub(" ",'-')
   end
@@ -10,5 +12,4 @@ class Landmark <ActiveRecord::Base
       slug == a.slug
     end
   end
-  
 end
