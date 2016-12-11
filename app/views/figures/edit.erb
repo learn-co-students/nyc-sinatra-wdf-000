@@ -1,0 +1,43 @@
+<%= erb :'/layouts/_header' %>
+<h1>Edit Figure: <%= @figure.name %></h1>
+
+<form action="/figures/<%= @figure.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>
+    <label for="name">Update figure name:</label>
+    <input id="figure_name" type="text" name="figure[name]" value="<%= @figure.name %>">    
+  </p>
+
+  <p>
+    <label for="title"><h3>Select from available titles:</h3></label><br>
+    <% Title.all.each do |title| %>
+      <%=title.name%> <input id="title_<%=title.id%>" type="checkbox" name="figure[title_ids][]" value="<%=title.id%>" <%='checked' if @figure.titles.include?(title) %>>
+    <% end %>    
+  </p>
+
+  <p>
+    <label for="new_title">Create a new title:</label>
+    <input id="new_title" type="text" name="title[name]">
+  </p>
+
+  <p>
+    <label for="landmark"><h3>Select from available landmarks:</h3></label><br>
+    <% Landmark.all.each do |landmark| %>
+      <%=landmark.name%> <input id="landmark_<%=landmark.id%>" type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>" <%='checked' if @figure.landmarks.include?(landmark) %>><br>
+    <% end %>    
+  </p>
+
+  <p>
+    <label for="new_landmark">Create a new landmark:</label>
+    <input id="new_landmark" type="text" name="landmark[name]">
+  </p>
+  <p>
+    <label for="year">Year Completed:</label>
+    <input id="landmark_year_completed" type="number" name="landmark[year_completed]">
+  </p>
+
+  <button type="submit" value="Edit Figure">Edit Figure</button>
+  <a href="/figures/<%= @figure.id %>">Go Back</a>
+
+</form>
+<%= erb :'/layouts/_footer' %>
