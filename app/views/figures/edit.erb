@@ -1,0 +1,17 @@
+<h1>Edit <%= @figure.name %>:</h1>
+
+<form method="POST" action="/figures/<%= @figure.id%>">
+
+<p>Name: <input type="text" name="figure[name]" id="figure_name" value="<%= @figure.name %>"></p>
+
+
+<p>New landmark:  <input type="text" name="figure[landmark_ids]" id="new_landmark"></p>
+
+
+<p>New Title:  <input type="text" name="figure[title_ids]" id="title_ids"></p>
+
+
+<input type="submit" value="Edit Figure">
+
+
+</form>
