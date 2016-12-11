@@ -1,0 +1,51 @@
+<pre>
+            Frank Sinatra
+       QB"   .  . ....^FBQQBQBQ
+       #^   ..../,, ,/yyBQBDBt`"B
+     B"  ._L_yQ&Qy&&QQBQQDlL;S; (Q
+    B^   /DQQQBQQQQQQBQBDQQD1:   "B
+   Q~   ,GQBDQDQQQQQQBBQQDQ&EC    7B
+   D    lQQQQQBQBQQQQQQQQBBID('    {
+   E   .iDDBQQBQQQQBBBQBQQDQ1!:    (
+   3   .(BQBBQBBQQQQBBQBBBDBS'     }                     I'm
+   Q   '~~cMMBQQBBQBP"""vBD1EL.    Q                   dreaming
+   Q    LuL `7QBBB?../LL;.!JDL     Q                    of a
+  "  ,  ,__&L.DBBEEL1L_,'EylEE!  ,U                     white
+  1 :s&yyQQQ6-DQBBQ&QQQQQQQQJY!  lyB1Q                Christmas.
+  S  ?DDQQBD'.QQBDQDBQBQQQDD1<  LIQDG
+  Q   j8BQE2 LQQBE9EBBEBQQES{! /BQSE
+   Q_ 'TS7L  <#P~^,G1?TXC3({!  3PEy
+    Q, ,_>'.,___yBD1DU;,'('''  yQ
+     L "Qy,  'IIIZl',L/&;!;:  LQ
+     Q; FD(  (`IE2L/QDB&lY!   6Q
+      Q, (/. `!?"21iQDU&/~   L FB
+       Q_ (EL/&&QDBQBDJ"   ,y^  `FB
+        Qy 75EEBBQESf`   _yB^      "M
+        Q7  `'^""~`   _yQQM'         `"FQ
+        F;         _yQQQQF              Q
+    </pre>
+    <h3>Update Figure</h3>
+    <form action="/figures/<%= @figure.id %>" method="post">
+      <input type="hidden" name="_method" value="PATCH">
+
+      <label><strong>Name: </strong></label><br>
+      <input id="figure_name" type="text" name="figure[name]" value="<%= @figure.name %>"><br>
+
+      <br><label><strong>Choose from landmarks: </strong></label><br>
+      <% Landmark.all.each do |landmark| %>
+      <input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%= landmark.id %>" value="<%= landmark.id %>" <%= 'checked' if @figure.landmarks.include?(landmark) %> ><%= landmark.name %></input><br>
+      <% end %>
+
+      <br><label><strong>And/Or create a new landmark: </strong></label><br>
+      <input id="new_landmark" type="text" name="landmark[name]"><br>
+
+      <br><label><strong>Choose from titles: </strong></label><br>
+      <% Title.all.each do |title| %>
+      <input type="checkbox" name="figure[title_ids][]" id="title_<%= title.id %>" value="<%= title.id %>" <%= 'checked' if @figure.titles.include?(title) %> ><%= title.name %></input><br>
+      <% end %>
+
+      <br><label><strong>And/Or create a new title: </strong></label><br>
+      <input id="new_title" type="text" name="title[name]"><br>
+
+      <br><input type="submit" name="" value="Edit Figure"><br>
+    </form>
